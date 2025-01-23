@@ -14,17 +14,23 @@
         }
 
         header {
-            background-color: #e60023;
-            color: white;
+            background-color: white;
+            color: #e60023;
             padding: 10px 20px;
             display: flex;
             align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: bold;
+            display: flex;
+            align-items: center;
             margin-right: 20px;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
         }
 
         .search-bar {
@@ -35,14 +41,15 @@
         input[type="text"] {
             width: 100%;
             padding: 10px;
-            border: none;
+            border: 1px solid #e60023;
             border-radius: 20px;
             outline: none;
+            background-color: #fff;
         }
 
         .home-button {
-            background: white;
-            color: #e60023;
+            background: #e60023;
+            color: white;
             border: none;
             padding: 10px 15px;
             border-radius: 20px;
@@ -53,7 +60,7 @@
         }
 
         .home-button:hover {
-            background: #eaeaea;
+            background: #c7001f;
         }
 
         main {
@@ -98,7 +105,9 @@
 <body>
 
 <header>
-    <div class="logo">Pinterest</div>
+    <div class="logo">
+        <img src="imgs/logo.png" alt="Pinterest Logo">
+    </div>
     <div class="search-bar">
         <input type="text" placeholder="Search...">
     </div>
