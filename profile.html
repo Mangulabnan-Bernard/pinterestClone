@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pinterest Clone Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f5f5f5;
@@ -18,7 +19,9 @@
         }
         .profile-header {
             background-color: #fff;
-            padding: 20px;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
         }
@@ -27,25 +30,32 @@
             height: 100px;
             border-radius: 50%;
             margin-right: 20px;
+            border: 2px solid #ddd;
         }
         .profile-header h1 {
             margin: 0;
-            font-size: 24px;
+            font-size: 28px;
+            color: #333;
         }
         .profile-header p {
             color: #888;
+            margin-top: 5px;
         }
         .pins {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
             margin-top: 20px;
         }
         .pin {
             background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 8px;
             overflow: hidden;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .pin:hover {
+            transform: scale(1.02);
         }
         .pin img {
             width: 100%;
@@ -54,6 +64,14 @@
         .pin-title {
             padding: 10px;
             text-align: center;
+            font-size: 16px;
+            color: #333;
+            font-weight: bold;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #aaa;
         }
     </style>
 </head>
@@ -64,11 +82,11 @@
         <img src="path_to_profile_picture.jpg" alt="Profile Picture">
         <div>
             <h1>Username</h1>
-            <p>Short bio about this user.</p>
+            <p>Short bio about this user. Here you talk about your interests.</p>
         </div>
     </div>
 
-    <h2>Pins</h2>
+    <h2 style="margin-top: 30px;">Pins</h2>
     <div class="pins">
         <div class="pin">
             <img src="path_to_image1.jpg" alt="Image 1">
@@ -82,9 +100,16 @@
             <img src="path_to_image3.jpg" alt="Image 3">
             <div class="pin-title">Pin Title 3</div>
         </div>
-        <!-- Add more pins as needed -->
-    </div>
-</div>
-
-</body>
-</html>
+        <div class="pin">
+            <img src="path_to_image4.jpg" alt="Image 4">
+            <div class="pin-title">Pin Title 4</div>
+        </div>
+        <div class="pin">
+            <img src="path_to_image5.jpg" alt="Image 5">
+            <div class="pin-title">Pin Title 5</div>
+        </div>
+        <div class="pin">
+            <img src="path_to_image6.jpg" alt="Image 6">
+            <div class="pin-title">Pin Title 6</div>
+        </div>
+       
