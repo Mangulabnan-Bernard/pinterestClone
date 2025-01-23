@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pinterest Clone</title>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="3212.png" type="image/png">
+    <style>
+       
+    </style>
 </head>
 <body>
 
@@ -12,8 +16,7 @@
         <div class="logo">
             <img src="imgs/logo.png" alt="Pinterest Logo">
             <div class="nav-links">
-                <h4>Watch</h4>
-                <h4>Explore</h4>
+                <h4 style="font-weight: bold;">Explore</h4>
             </div>
         </div>
        
@@ -30,10 +33,9 @@
         </nav>
     </header>
     
-    
     <div class="hero">
         <div class="hero-content">
-            <h1>Get your next <br> home decor idea</h1>
+            <h1>Get your next <br> <span id="category-text" class="category-text">home decor idea</span></h1>
             <div class="dots">
                 <span class="dot active"></span>
                 <span class="dot"></span>
@@ -42,117 +44,176 @@
         </div>
     </div>
 
-    <div class="image-grid">
-        <div class="image-container">
-            <img src="https://i.pinimg.com/736x/2c/c8/8f/2cc88fb9896bfd9ceb8fe14e1dad13e4.jpg" alt="Image 1" class="image">
-        </div>
-        <div class="image-container">
-            <img src="https://i.ytimg.com/vi/u_gLlNcxiGs/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBYTxQFOFcO8bAUo8e0geCqDr0W2g" alt="Image 2" class="image">
-        </div>
-        <div class="image-container">
-            <img src="https://i.pinimg.com/236x/b3/35/23/b33523208dc668e17b3f79f29eda3e9b.jpg" alt="Image 3" class="image">
-        </div>
-        <div class="image-container">
-            <img src="https://images.unsplash.com/photo-1519472835125-22e1cba7740c" alt="Image 4" class="image">
-        </div>
-        <div class="image-container">
-            <img src="https://images.unsplash.com/photo-1555314822-d85b5c897325" alt="Image 5" class="image">
-        </div>
-        <div class="image-container">
-            <img src="https://images.unsplash.com/photo-1563309681-6a970cc8fa9e" alt="Image 6" class="image">
+    <div class="image-grid"></div>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Get your next <br> <span id="category-text" class="category-text">home decor idea</span></h1>
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
         </div>
     </div>
 
-    <div class="cta">
-        <a href="#" class="cta-button">Here's how it works &rarr;</a>
+    <div class="food-gallery">
+        <div class="food-item">
+            <img src="imgs/food1.jpg" alt="Food 1">
+        </div>
+        <div class="food-item">
+            <img src="imgs/food2.jpg" alt="Food 2">
+        </div>
+        <div class="food-item">
+            <img src="imgs/food3.jpg" alt="Food 3">
+        </div>
+        <div class="food-item">
+            <img src="imgs/food4.jpg" alt="Food 4">
+        </div>
+        <div class="food-item">
+            <img src="imgs/food5.jpg" alt="Food 5">
+        </div>
+        <div class="food-item">
+            <img src="imgs/food6.jpg" alt="Food 6">
+        </div>
     </div>
+    <script>const images = {
+        gaming: [
+            "imgs/2.jpg",
+            "imgs/1.jpg", 
+            "imgs/g.jpg", 
+            "imgs/g1.jpg",
+            "imgs/g6.jpg",
+            
+           
+        ],
+        nature: [
+            "imgs/n1.jpg",
+            "imgs/n2.jpg",
+            "imgs/n3.jpg",
+            "imgs/n4.jpg",
+            "imgs/n5.jpg",
+            "imgs/n6.jpg",
+        ],
+        anime: [
+            "imgs/a1.jpg", 
+            "imgs/a2.jpg", 
+            "imgs/a3.jpg", 
+            "imgs/a4.jpg", 
+            "imgs/a5.jpg", 
+            
+           
+        ]
+    };
     
-    <script>
-        const images = {
-            gaming: [
-                "imgs/2.jpg",
-                "imgs/1.jpg", 
-                "imgs/g.jpg", 
-                "imgs/g1.jpg",
-            ],
-            nature: [
-                "imgs/n1.jpg",
-                "imgs/n2.jpg",
-                "imgs/n3.jpg",
-                "imgs/n4.jpg",
-                "imgs/n5.jpg",
-                "imgs/n6.jpg",
-            ],
-            anime: [
-                "imgs/3.jpg", 
-                "imgs/logo.png",
-            ]
-        };
+    const imageGrid = document.querySelector('.image-grid');
+    const dotsContainer = document.querySelector('.dots');
+    const signUpButton = document.querySelector('.sign-up-button');
+    const categoryText = document.getElementById('category-text');
     
-        const imageGrid = document.querySelector('.image-grid');
-        const dotsContainer = document.querySelector('.dots');
-        const signUpButton = document.querySelector('.sign-up-button');
+    let currentGroup = 0;
+    let imageGroups = Object.keys(images); // Get an array of group names
     
-        let currentGroup = 0;
-        let imageGroups = Object.keys(images); // Get an array of group names
+    function displayImages() {
+        imageGrid.innerHTML = ''; // Clear the image grid
     
-        function displayImages() {
-            imageGrid.innerHTML = ''; // Clear the image grid
+        const currentGroupImages = images[imageGroups[currentGroup]];
     
-            const currentGroupImages = images[imageGroups[currentGroup]];
+        currentGroupImages.forEach((image, index) => {
+            const imageContainer = document.createElement('div');
+            imageContainer.classList.add('image-container');
     
-            currentGroupImages.forEach((image, index) => {
-                const imageContainer = document.createElement('div');
-                imageContainer.classList.add('image-container');
+            const img = document.createElement('img');
+            img.src = image;
+            img.alt = `Image ${index + 1}`;
+            img.classList.add('image');
+            imageContainer.appendChild(img);
     
-                const img = document.createElement('img');
-                img.src = image;
-                img.alt = `Image ${index + 1}`;
-                img.classList.add('image');
-                imageContainer.appendChild(img);
+            imageGrid.appendChild(imageContainer);
+        });
     
-                imageGrid.appendChild(imageContainer);
-            });
-        }
+        // Fade in the new images
+        const imageContainers = document.querySelectorAll('.image-container');
+        imageContainers.forEach(container => {
+            container.classList.remove('fade-out');
+            container.classList.add('fade-in');
+        });
+    }
     
-        function updateDots() {
-            dotsContainer.innerHTML = ''; // Clear existing dots
+    function updateDots() {
+        dotsContainer.innerHTML = ''; // Clear existing dots
     
-            for (let i = 0; i < imageGroups.length; i++) {
-                const dot = document.createElement('span');
-                dot.classList.add('dot');
-                if (i === currentGroup) {
-                    dot.classList.add('active');
-                }
-                dotsContainer.appendChild(dot);
+        for (let i = 0; i < imageGroups.length; i++) {
+            const dot = document.createElement('span');
+            dot.classList.add('dot');
+            if (i === currentGroup) {
+                dot.classList.add('active');
             }
+            dotsContainer.appendChild(dot);
         }
+    }
+    function updateCategoryText() {
+    const currentCategory = imageGroups[currentGroup];
     
-        function nextGroup() {
+    // Remove previous class and apply fade effect
+    categoryText.classList.remove('fade-up', 'gaming-color', 'nature-color', 'anime-color'); 
+    categoryText.offsetWidth; // Trigger reflow to restart the animation
+    categoryText.classList.add('fade-up'); // Apply fade-up animation
+
+    // Set new category text and color
+    if (currentCategory === 'gaming') {
+        categoryText.textContent = 'gaming ideas';
+        categoryText.classList.add('gaming-color');
+    } else if (currentCategory === 'nature') {
+        categoryText.textContent = 'nature ideas';
+        categoryText.classList.add('nature-color');
+    } else if (currentCategory === 'anime') {
+        categoryText.textContent = 'anime ideas';
+        categoryText.classList.add('anime-color');
+    }
+}
+
+    
+    function nextGroup() {
+        // Fade out the images
+        const imageContainers = document.querySelectorAll('.image-container');
+        imageContainers.forEach(container => {
+            container.classList.add('fade-out');
+        });
+    
+        // Fade out the text
+        categoryText.classList.add('fade-up');
+    
+        // After the animations, change the group and refresh
+        setTimeout(() => {
             currentGroup = (currentGroup + 1) % imageGroups.length;
             displayImages();
             updateDots();
+            updateCategoryText(); // Update the category text with animation
+        }, 1000); // Timeout to wait for the fade-out animations to finish
+    }
+    
+    // Initial display
+    displayImages();
+    updateDots();
+    updateCategoryText(); // Set the initial category text
+    
+    // Auto-rotate every 3 seconds
+    setInterval(nextGroup, 3000);
+    
+    // Add click event listeners to dots
+    dotsContainer.addEventListener('click', (event) => {
+        if (event.target.classList.contains('dot')) {
+            currentGroup = Array.from(dotsContainer.children).indexOf(event.target);
+            displayImages();
+            updateDots();
+            updateCategoryText(); // Update the category text on dot click
         }
+    });
     
-        // Initial display
-        displayImages();
-        updateDots();
+    // Add event listener to the 'Sign up' button to switch groups
+    signUpButton.addEventListener('click', nextGroup);
     
-        // Auto-rotate every 2 seconds
-        setInterval(nextGroup, 2000);
-    
-        // Add click event listeners to dots
-        dotsContainer.addEventListener('click', (event) => {
-            if (event.target.classList.contains('dot')) {
-                currentGroup = Array.from(dotsContainer.children).indexOf(event.target);
-                displayImages();
-                updateDots();
-            }
-        });
-    
-        // Add event listener to the 'Sign up' button to switch groups
-        signUpButton.addEventListener('click', nextGroup);
     </script>
-    
+
 </body>
 </html>

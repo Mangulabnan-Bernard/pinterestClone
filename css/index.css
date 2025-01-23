@@ -4,16 +4,16 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #f0f2f5; /* Light gray background */
+    background-color: #ffffff; /* Set background to white */
 }
 
 header {
-    background-color: #fff;
-    padding: 15px 20px; 
+    background-color: #ffffff; /* White header */
+    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    /* Removed box-shadow for no highlight */
 }
 
 .logo {
@@ -57,12 +57,12 @@ nav .right-nav {
     display: flex;
     align-items: center;
     text-align: right; /* Align text to the right */
-    margin-left: auto; 
-    gap: 15px; 
+    margin-left: auto;
+    gap: 15px;
 }
 
 nav .right-nav ul li a {
-    font-weight: bold; /* Make the text bold */
+    font-weight: bold;
 }
 
 .hero {
@@ -111,14 +111,17 @@ nav .right-nav ul li a {
     display: flex;
     overflow-x: auto;
     padding: 20px;
+    justify-content: space-between;
+    gap: 10px;
 }
 
 .image-grid img {
     width: 200px;
     height: auto;
-    margin-right: 20px;
-    border-radius: 5px; /* Add border-radius for rounded images */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow on images */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+    object-position: center;
 }
 
 .cta-button {
@@ -156,41 +159,183 @@ button:hover {
 }
 
 button a {
-    font-family: Roboto, sans-serif; 
+    font-family: Roboto, sans-serif;
 }
 
-.image-grid {
-    display: flex;
-    overflow-x: auto;
-    padding: 20px;
-    justify-content: space-between;
-    gap: 10px; 
-  }
-  
-  .image-grid img {
-    width: 200px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    object-fit: cover;
-    object-position: center;
-  }
-  
-  .dots {
+.dots {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-  }
-  
-  .dot {
+}
+.bold-text {
+    font-weight: bold;
+}
+
+.dot {
     width: 10px;
     height: 10px;
     border-radius: 50%;
     background-color: #ccc;
     margin: 0 5px;
     cursor: pointer;
-  }
-  
-  .dot.active {
+}
+
+.dot.active {
     background-color: #333;
-  }
+}
+
+
+/* Add this to the existing CSS */
+
+/* Fade out effect for images */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Fade-in for images */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.image-container {
+    opacity: 1;
+    animation: fadeIn 1s forwards;
+}
+
+.image-container.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+/* Fade-out and fade-up for text */
+@keyframes textFadeUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* Updated fade-up for text */
+.fade-up {
+    animation: textFadeUp 1s forwards;
+}
+
+/* Adjust the category text */
+.category-text {
+    transition: all 0.5s ease;
+} /* CSS for animation */
+        .hero-content h1 {
+            transition: all 0.5s ease;
+            position: relative;
+        }
+
+        .fade-up {
+            animation: fadeUp 1s forwards;
+        }
+
+        .category-text {
+            color: #333;
+            font-weight: bold;
+            font-size: 2.5rem;
+        }
+
+        /* Animation for the text */
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Example colors for different categories */
+        .gaming-color {
+            color: #FF5733; /* Gaming color */
+        }
+
+        .nature-color {
+            color: #4CAF50; /* Nature color */
+        }
+
+        .anime-color {
+            color: #9C27B0; /* Anime color */
+        }
+
+        /* Fade-in effect for text */
+@keyframes textFadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add fade-up class animation */
+.fade-up {
+    animation: textFadeUp 3s forwards;
+}
+
+.category-text {
+    transition: all 0.5s ease;
+    font-size: 2.5rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.gaming-color {
+    color: #FF5733;
+}
+
+.nature-color {
+    color: #4CAF50;
+}
+
+.anime-color {
+    color: #9C27B0;
+}
+
+
+.food-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 50px;
+    background-color: #FFEB3B; /* Yellow background */
+}
+
+
+.food-gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.food-gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Smooth scrolling effect */
+html {
+    scroll-behavior: smooth;
+}
