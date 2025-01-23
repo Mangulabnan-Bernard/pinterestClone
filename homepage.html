@@ -12,17 +12,28 @@
 </head>
 
 <body>
-
     <nav>
-        <a class="logo" href="#"><i class="fab fa-pinterest"></i></a>
-        <a href="#" class="active">Home</a>
-        <a href="#">Explore</a>
-        <a href="#">Create</a>
-        <input type="text" class="search" placeholder="Search">
-        <a href="#" class="icon"><i class="fas fa-bell"></i></a>
-        <a href="#" class="icon"><i class="fas fa-comment-dots"></i></a>
-        <a href="profile.html"><img src="image\Mervin magat.jpg" alt=""></a>
+        <div class="left-section">
+            <a class="logo" href="homepage.html"><i class="fab fa-pinterest"></i></a>
+            <a href="#" class="active">Home</a>
+            <a href="#">Explore</a>
+            <a href="#">Create</a>
+        </div>
+        <div class="center-section">
+            <input 
+                type="text" 
+                class="search" 
+                placeholder="Search" 
+                onclick="redirectToSearch()">
+        </div>
+        <div class="right-section">
+            <a href="#" class="icon"><i class="fas fa-bell"></i></a>
+            <a href="#" class="icon"><i class="fas fa-comment-dots"></i></a>
+            <a href="profile.html"><img src="image/Mervin magat.jpg" alt="Profile"></a>
+        </div>
     </nav>
+    
+    
 
     <div id="loader"></div>
     <div id="container">
@@ -107,6 +118,16 @@
         };
 
         window.addEventListener('scroll', handleScroll);
+
+
+
+
+
+        function redirectToSearch() {
+            // Redirect to search.html
+            window.location.href = "search.html";
+        }
+    
     </script>
 
 </body>
