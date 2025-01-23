@@ -9,7 +9,7 @@ body {
 
 header {
 background-color: #fff;
-padding: 30px 15px; /* Add top padding here */
+padding: 10px 15px; /* Add top padding here */
 display: flex;
 justify-content: space-between;
 align-items: center;
@@ -122,8 +122,26 @@ font-weight: bold; /* Make the text bold */
     margin-top: 30px;
     text-align: center;
 }
-
-/* Optional: Hover effect for buttons */
-button:hover {
+button {
+    background-color: #e50914; /* Pinterest red */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px; 
+    transition: background-color 0.2s ease-in-out; 
+  }
+  
+  button:hover {
     background-color: #d30713; /* Slightly darker red on hover */
-}
+  }
+  
+  .sign-up-button {
+    background-color: #afa6a65d; /* White background */
+    color: #574b4b; /* Dark gray text */
+    border-radius: 20px;
+
+    border: 1px solid #ccc; /* Light gray border */
+  }
