@@ -35,7 +35,7 @@
 
         .search-bar {
             flex-grow: 1;
-            margin-right: 40px;
+            margin-right: 40px; 
         }
 
         input[type="text"] {
@@ -47,16 +47,23 @@
             background-color: #fff;
         }
 
+        .home-button-group {
+            display: flex;
+            margin-left: 60px; 
+            margin-bottom: 10px;
+        }
+
         .home-button {
             background: #e60023;
             color: white;
             border: none;
-            padding: 10px 15px;
+            padding: 10px 15px; /* Reduced padding for a smaller button */
+            font-size: 14px; /* Decreased font size for a smaller button */
+            font-weight: bold;
             border-radius: 20px;
             cursor: pointer;
-            font-weight: bold;
             transition: background 0.3s;
-            margin-left: 40px;
+            margin-right: 10px; 
         }
 
         .home-button:hover {
@@ -111,7 +118,9 @@
     <div class="search-bar">
         <input type="text" placeholder="Search...">
     </div>
-    <button class="home-button">Home</button>
+    <div class="home-button-group">
+        <button class="home-button">Home</button>
+    </div>
 </header>
 
 <main>
