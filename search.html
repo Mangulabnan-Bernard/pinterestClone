@@ -57,8 +57,8 @@
             background: #e60023;
             color: white;
             border: none;
-            padding: 10px 15px; /* Reduced padding for a smaller button */
-            font-size: 14px; /* Decreased font size for a smaller button */
+            padding: 10px 15px;
+            font-size: 14px;
             font-weight: bold;
             border-radius: 20px;
             cursor: pointer;
@@ -100,7 +100,8 @@
 
         .pin img {
             width: 100%;
-            height: auto;
+            height: 200px; 
+            object-fit: cover; 
             display: block;
         }
 
@@ -119,7 +120,7 @@
         <input type="text" placeholder="Search...">
     </div>
     <div class="home-button-group">
-        <button class="home-button">Home</button>
+        <a href="homepage.html" class="home-button">Home</a> 
     </div>
 </header>
 
@@ -132,7 +133,7 @@
         </div>
         <div class="pin">
             <img src="image/search_imgs/download.jpg" alt="Sample Pin">
-            <div class="pin-description">Qoutes</div>
+            <div class="pin-description">Quotes</div>
         </div>
         <div class="pin">
             <img src="image/search_imgs/PC Setup _ Home Office.jpg" alt="Sample Pin">
