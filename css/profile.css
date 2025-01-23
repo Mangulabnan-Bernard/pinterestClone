@@ -1,0 +1,125 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav .logo {
+    font-size: 24px;
+    color: #e60023;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+nav .search {
+    flex-grow: 1;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+}
+
+nav .icon {
+    font-size: 20px;
+    margin-left: 15px;
+}
+
+nav img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-left: 15px;
+}
+
+/* Profile Header */
+.profile-header {
+    text-align: center;
+    padding: 30px;
+    background-color: #fff;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header .profile-picture {
+    width: 100px;
+    height: 100px;
+    background-color: #d8d8d8;
+    border-radius: 50%;
+    font-size: 36px;
+    line-height: 100px;
+    margin: 0 auto 10px;
+    color: #fff;
+}
+
+.profile-header h1 {
+    font-size: 24px;
+    margin: 10px 0;
+    color: #333;
+}
+
+.profile-header .username {
+    font-size: 16px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.profile-header .following {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.profile-header .buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #e60023;
+    color: #fff;
+    margin: 0 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.profile-header .buttons button:hover {
+    background-color: #d0001d;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.tabs button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #f4f4f4;
+    color: #333;
+    font-size: 14px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+}
+
+.tabs button.active {
+    border-bottom: 2px solid #e60023;
+    font-weight: bold;
+}
