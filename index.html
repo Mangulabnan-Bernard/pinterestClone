@@ -29,7 +29,8 @@
             </div>
         </nav>
     </header>
-
+    
+    
     <div class="hero">
         <div class="hero-content">
             <h1>Get your next <br> home decor idea</h1>
@@ -65,75 +66,93 @@
     <div class="cta">
         <a href="#" class="cta-button">Here's how it works &rarr;</a>
     </div>
-<script> const images = {
-    gaming: [
-      "imgs/logo.png",
-      "imgs/logo.png","imgs/logo.png","imgs/logo.png",
-    ],
-    nature: [
-     "imgs/logo.png"
-    ],
-    anime: [
-     "imgs/logo.png","imgs/logo.png",
-    ]
-  };
-  
-  const imageGrid = document.querySelector('.image-grid');
-  const dotsContainer = document.querySelector('.dots');
-  
-  let currentGroup = 0;
-  let currentImageIndex = 0;
-  let imageGroups = Object.keys(images); // Get an array of group names
-  
-  function displayImages() {
-    imageGrid.innerHTML = ''; 
-  
-    const currentGroupImages = images[imageGroups[currentGroup]];
-    const currentImage = currentGroupImages[currentImageIndex];
-  
-    const img = document.createElement('img');
-    img.src = currentImage;
-    img.alt = `Image ${currentImageIndex + 1}`;
-    imageGrid.appendChild(img);
-  }
-  
-  function updateDots() {
-    dotsContainer.innerHTML = ''; 
-  
-    for (let i = 0; i < imageGroups.length; i++) {
-      const dot = document.createElement('span');
-      dot.classList.add('dot');
-      if (i === currentGroup) {
-        dot.classList.add('active');
-      }
-      dotsContainer.appendChild(dot);
-    }
-  }
-  
-  function nextGroup() {
-    currentGroup = (currentGroup + 1) % imageGroups.length;
-    currentImageIndex = 0; 
-    displayImages();
-    updateDots();
-  }
-  
-  // Initial display
-  displayImages();
-  updateDots();
-  
-  // Auto-rotate every 2 seconds
-  setInterval(nextGroup, 2000); 
-  
-  // Add click event listeners to dots
-  dotsContainer.addEventListener('click', (event) => {
-    if (event.target.classList.contains('dot')) {
-      currentGroup = Array.from(dotsContainer.children).indexOf(event.target);
-      currentImageIndex = 0; 
-      displayImages();
-      updateDots();
-    }
-  });
-  
-  </script>
+    
+    <script>
+        const images = {
+            gaming: [
+                "imgs/2.jpg",
+                "imgs/1.jpg", 
+                "imgs/g.jpg", 
+                "imgs/g1.jpg",
+            ],
+            nature: [
+                "imgs/n1.jpg",
+                "imgs/n2.jpg",
+                "imgs/n3.jpg",
+                "imgs/n4.jpg",
+                "imgs/n5.jpg",
+                "imgs/n6.jpg",
+            ],
+            anime: [
+                "imgs/3.jpg", 
+                "imgs/logo.png",
+            ]
+        };
+    
+        const imageGrid = document.querySelector('.image-grid');
+        const dotsContainer = document.querySelector('.dots');
+        const signUpButton = document.querySelector('.sign-up-button');
+    
+        let currentGroup = 0;
+        let imageGroups = Object.keys(images); // Get an array of group names
+    
+        function displayImages() {
+            imageGrid.innerHTML = ''; // Clear the image grid
+    
+            const currentGroupImages = images[imageGroups[currentGroup]];
+    
+            currentGroupImages.forEach((image, index) => {
+                const imageContainer = document.createElement('div');
+                imageContainer.classList.add('image-container');
+    
+                const img = document.createElement('img');
+                img.src = image;
+                img.alt = `Image ${index + 1}`;
+                img.classList.add('image');
+                imageContainer.appendChild(img);
+    
+                imageGrid.appendChild(imageContainer);
+            });
+        }
+    
+        function updateDots() {
+            dotsContainer.innerHTML = ''; // Clear existing dots
+    
+            for (let i = 0; i < imageGroups.length; i++) {
+                const dot = document.createElement('span');
+                dot.classList.add('dot');
+                if (i === currentGroup) {
+                    dot.classList.add('active');
+                }
+                dotsContainer.appendChild(dot);
+            }
+        }
+    
+        function nextGroup() {
+            currentGroup = (currentGroup + 1) % imageGroups.length;
+            displayImages();
+            updateDots();
+        }
+    
+        // Initial display
+        displayImages();
+        updateDots();
+    
+        // Auto-rotate every 2 seconds
+        setInterval(nextGroup, 2000);
+    
+        // Add click event listeners to dots
+        dotsContainer.addEventListener('click', (event) => {
+            if (event.target.classList.contains('dot')) {
+                currentGroup = Array.from(dotsContainer.children).indexOf(event.target);
+                displayImages();
+                updateDots();
+            }
+        });
+    
+        // Add event listener to the 'Sign up' button to switch groups
+        signUpButton.addEventListener('click', nextGroup);
+    </script>
+    
 </body>
 </html>

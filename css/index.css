@@ -136,7 +136,7 @@ button {
     background-color: #e50914; /* Pinterest red */
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 13px 15px;
     border-radius: 20px;
     cursor: pointer;
     font-weight: 500;
@@ -149,7 +149,7 @@ button:hover {
 }
 
 .sign-up-button {
-    background-color: #fff; /* White background */
+    background-color: #dad8d8; /* White background */
     color: #574b4b; /* Dark gray text */
     border-radius: 20px;
     border: 1px solid #ccc; /* Light gray border */
