@@ -10,26 +10,29 @@
 
     <header>
         <div class="logo">
-            <img src="imgs/logo.png" alt="Pinterest Logo"> 
-            <span>Pinterest</span>
+            <img src="imgs/logo.png" alt="Pinterest Logo">
+            <div class="nav-links">
+                <h4>Watch</h4>
+                <h4>Explore</h4>
+            </div>
         </div>
+       
         <nav>
-          
             <div class="right-nav">
                 <ul>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Business</a></li>
                     <li><a href="#">Blog</a></li>
                 </ul>
-                <button><a href="homepage.html">Log in</a></button>
-
-                <button class="sign-up-button">Sign up</button>            </div>
+                <button><a href="homepage.html" style="text-decoration: none; color: white; font-weight: 500; font-family: sans-serif;">Log in</a></button>
+                <button class="sign-up-button">Sign up</button>
+            </div>
         </nav>
     </header>
 
     <div class="hero">
         <div class="hero-content">
-            <h1>Get your next <br> green thumb idea</h1>
+            <h1>Get your next <br> home decor idea</h1>
             <div class="dots">
                 <span class="dot active"></span>
                 <span class="dot"></span>
@@ -39,17 +42,98 @@
     </div>
 
     <div class="image-grid">
-        <img src="image1.jpg" alt="Image 1">
-        <img src="image2.jpg" alt="Image 2">
-        <img src="image3.jpg" alt="Image 3">
-        <img src="image4.jpg" alt="Image 4">
-        <img src="image5.jpg" alt="Image 5">
-        <img src="image6.jpg" alt="Image 6">
+        <div class="image-container">
+            <img src="https://i.pinimg.com/736x/2c/c8/8f/2cc88fb9896bfd9ceb8fe14e1dad13e4.jpg" alt="Image 1" class="image">
+        </div>
+        <div class="image-container">
+            <img src="https://i.ytimg.com/vi/u_gLlNcxiGs/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBYTxQFOFcO8bAUo8e0geCqDr0W2g" alt="Image 2" class="image">
+        </div>
+        <div class="image-container">
+            <img src="https://i.pinimg.com/236x/b3/35/23/b33523208dc668e17b3f79f29eda3e9b.jpg" alt="Image 3" class="image">
+        </div>
+        <div class="image-container">
+            <img src="https://images.unsplash.com/photo-1519472835125-22e1cba7740c" alt="Image 4" class="image">
+        </div>
+        <div class="image-container">
+            <img src="https://images.unsplash.com/photo-1555314822-d85b5c897325" alt="Image 5" class="image">
+        </div>
+        <div class="image-container">
+            <img src="https://images.unsplash.com/photo-1563309681-6a970cc8fa9e" alt="Image 6" class="image">
+        </div>
     </div>
 
     <div class="cta">
         <a href="#" class="cta-button">Here's how it works &rarr;</a>
     </div>
-
+<script> const images = {
+    gaming: [
+      "imgs/logo.png",
+      "imgs/logo.png","imgs/logo.png","imgs/logo.png",
+    ],
+    nature: [
+     "imgs/logo.png"
+    ],
+    anime: [
+     "imgs/logo.png","imgs/logo.png",
+    ]
+  };
+  
+  const imageGrid = document.querySelector('.image-grid');
+  const dotsContainer = document.querySelector('.dots');
+  
+  let currentGroup = 0;
+  let currentImageIndex = 0;
+  let imageGroups = Object.keys(images); // Get an array of group names
+  
+  function displayImages() {
+    imageGrid.innerHTML = ''; 
+  
+    const currentGroupImages = images[imageGroups[currentGroup]];
+    const currentImage = currentGroupImages[currentImageIndex];
+  
+    const img = document.createElement('img');
+    img.src = currentImage;
+    img.alt = `Image ${currentImageIndex + 1}`;
+    imageGrid.appendChild(img);
+  }
+  
+  function updateDots() {
+    dotsContainer.innerHTML = ''; 
+  
+    for (let i = 0; i < imageGroups.length; i++) {
+      const dot = document.createElement('span');
+      dot.classList.add('dot');
+      if (i === currentGroup) {
+        dot.classList.add('active');
+      }
+      dotsContainer.appendChild(dot);
+    }
+  }
+  
+  function nextGroup() {
+    currentGroup = (currentGroup + 1) % imageGroups.length;
+    currentImageIndex = 0; 
+    displayImages();
+    updateDots();
+  }
+  
+  // Initial display
+  displayImages();
+  updateDots();
+  
+  // Auto-rotate every 2 seconds
+  setInterval(nextGroup, 2000); 
+  
+  // Add click event listeners to dots
+  dotsContainer.addEventListener('click', (event) => {
+    if (event.target.classList.contains('dot')) {
+      currentGroup = Array.from(dotsContainer.children).indexOf(event.target);
+      currentImageIndex = 0; 
+      displayImages();
+      updateDots();
+    }
+  });
+  
+  </script>
 </body>
 </html>
