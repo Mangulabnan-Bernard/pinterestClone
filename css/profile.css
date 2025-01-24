@@ -8,31 +8,52 @@ body {
 
 nav {
     display: flex;
+    justify-content: space-between; /* Distribute sections evenly */
     align-items: center;
     padding: 10px 20px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
 }
 
 nav .logo {
-    font-size: 24px;
+    font-size: 30px; /* Adjusted to match your desired size */
     color: #e60023;
     margin-right: 20px;
     text-decoration: none;
 }
 
+.left-section a.active {
+    background: #000;
+    color: #fff;
+  }
+  
 nav a {
     text-decoration: none;
-    color: #333;
+    color: #000; /* Updated to match your other navbar styles */
     margin: 0 10px;
-    font-size: 16px;
+    font-weight: 600; /* Bold for better visibility */
+    padding: 10px 15px; /* Added padding for easier clicking */
+    border-radius: 20px; /* Rounded corners */
+    transition: background 0.3s, color 0.3s;
+}
+
+nav a.active {
+    background: #000; /* Active link styling */
+    color: #fff; /* Text color for active link */
 }
 
 nav .search {
-    flex-grow: 1;
-    padding: 8px 12px;
-    border: 1px solid #ddd;
+    flex-grow: 1; /* Makes search bar stretch to fill remaining space */
+    padding: 10px 15px;
+    border: 1px solid #ccc; /* Updated border color */
     border-radius: 20px;
+    background-color: #E9E9E9; /* Updated background */
+    font-size: 16px;
 }
 
 nav .icon {
@@ -41,10 +62,16 @@ nav .icon {
 }
 
 nav img {
-    width: 32px;
-    height: 32px;
+    width: 35px; /* Size adjustment for consistency */
+    height: 35px; /* Size adjustment for consistency */
     border-radius: 50%;
-    margin-left: 15px;
+    object-fit: cover; /* Maintains image aspect ratio */
+    cursor: pointer; /* Changes cursor on hover */
+    transition: transform 0.3s; /* Animation for scaling */
+}
+
+nav img:hover {
+    transform: scale(1.1); /* Hover effect for profile images */
 }
 
 /* Profile Header */
@@ -52,7 +79,7 @@ nav img {
     text-align: center;
     padding: 30px;
     background-color: #fff;
-    margin-top: 20px;
+    margin-top: 100px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
