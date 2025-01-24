@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="css/profile.css">
     <title>Profile - Pinterest</title>
 </head>
@@ -20,18 +19,20 @@
         <input type="text" class="search" placeholder="Search">
         <a href="#" class="icon"><i class="fas fa-bell"></i></a>
         <a href="#" class="icon"><i class="fas fa-comment-dots"></i></a>
-        <a href="profile.html"><img src="image/Mervin magat.jpg" alt=""></a>
+        <a href="settings.html"><img src="image/Mervin magat.jpg" alt=""></a>
     </nav>
 
     <main>
         <div class="profile-header">
             <a href="profile.html"><img src="image/Mervin magat.jpg" alt="" class="profile-picture"></a>
-            <h1>Mervin Magat</h1>
-            <p class="username">@mervinmagat0@gmail.com</p>
+            <h1 id="name"></h1>
+            <p class="username">@<span id="email"></span></p>
             <p class="following">69,420 following</p>
             <div class="buttons">
                 <button>Share</button>
-                <button>edit profile</button>
+                <a href="settings.html">
+                    <button>Edit Profile</button>
+                </a>
             </div>
         </div>
 
@@ -40,6 +41,19 @@
             <button>Saved</button>
         </div>
     </main>
-</body>
 
+    <script>
+        // Read the values from localStorage
+        const storedName = localStorage.getItem('name');
+        const storedEmail = localStorage.getItem('email');
+
+        // Update the profile information
+        if (storedName) {
+            document.getElementById('name').innerText = storedName;
+        }
+        if (storedEmail) {
+            document.getElementById('email').innerText = storedEmail;
+        }
+    </script>
+</body>
 </html>
